@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-mocha index.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,15 @@
   },
   "homepage": "https://github.com/banyudu/medium-story#readme",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/mocha": "^5.2.6",
+    "@types/power-assert": "^1.5.0",
+    "mocha": "^6.0.2",
+    "power-assert": "^1.6.1",
+    "ts-mocha": "^6.0.0",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
