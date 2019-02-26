@@ -3,7 +3,7 @@ import getStories from './index'
 
 describe('get normal user', async () => {
   it('result is an array', async () => {
-    const stories = await getStories('Medium')
+    const stories = await getStories('Medium', { cors: true })
     assert.ok(stories instanceof Array)
   })
 
