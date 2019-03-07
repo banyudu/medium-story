@@ -7,8 +7,8 @@ export interface Story {
   title: string
   link: string
   pubDate: Date
-  'content:encoded': string
-  'dc:creator': string
+  content: string
+  creator: string
   guid: string
   categories: string[]
   isoDate: Date
@@ -38,6 +38,18 @@ export interface getStoriesOptions {
 }
 
 export default async function getStories(username: string, options: getStoriesOptions = {}): Promise<StoriesResult> {
+  const defaultResult: StoriesResult = {
+    items: [],
+    feedUrl: '',
+    image: { link: '', url: '', title: '' },
+    title: '',
+    description: '',
+    webMaster: '',
+    generator: '',
+    link: '',
+    lastBuildDate: new Date()
+  } 
+  if (!username) return defaultResult
   let url = `https://medium.com/feed/@${username}`
   if (options.cors) {
     if (typeof options.cors === 'boolean') {
@@ -48,7 +60,12 @@ export default async function getStories(username: string, options: getStoriesOp
   }
 
   // get rss
-  const res = await axios.get(url, { timeout: options.timeout || 5000})
+  let res = null
+  try {
+    res = await axios.get(url, { timeout: options.timeout || 10000})
+  } catch (error) {
+    return defaultResult
+  }
   
   const result: StoriesResult = await parser.parseString(res.data || '') as any
 
@@ -57,6 +74,10 @@ export default async function getStories(username: string, options: getStoriesOp
   for (const item of result.items) {
     item.isoDate = new Date(item.isoDate)
     item.pubDate = new Date(item.pubDate)
+    item.content = (item as any)['content:encoded']
+    item.creator = (item as any)['dc:creator']
+    delete (item as any)['content:encoded']
+    delete (item as any)['dc:creator']
   }
   return result
 }
