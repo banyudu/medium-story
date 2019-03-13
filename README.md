@@ -16,6 +16,18 @@
 import getMediumStories from 'medium-story'
 
 const stories = await getMediumStories('Your-Medium-Username')
+
+for (const story of stories.items) {
+    console.log(story.title)
+    // title: string;
+    // link: string;
+    // pubDate: Date;
+    // content: string;
+    // creator: string;
+    // guid: string;
+    // categories: string[];
+    // isoDate: Date;
+}
 ```
 
 ### Browser
@@ -24,6 +36,18 @@ const stories = await getMediumStories('Your-Medium-Username')
 import getMediumStories from 'medium-story'
 
 const stories = await getMediumStories('Your-Medium-Username', { cors: true })
+
+for (const story of stories.items) {
+    console.log(story.title)
+    // title: string;
+    // link: string;
+    // pubDate: Date;
+    // content: string;
+    // creator: string;
+    // guid: string;
+    // categories: string[];
+    // isoDate: Date;
+}
 ```
 
 ## Types
