@@ -1,6 +1,6 @@
 {
   "name": "medium-story",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "fetch stories from medium.com",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
