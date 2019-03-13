@@ -12,15 +12,56 @@
 
 ### Node
 
-<img src="./img/node.png" alt="node" width="600"/>
+```typescript
+import getMediumStories from 'medium-story'
+
+const stories = await getMediumStories('Your-Medium-Username')
+```
 
 ### Browser
 
-<img src="./img/browser.png" alt="node" width="600"/>
+```typescript
+import getMediumStories from 'medium-story'
+
+const stories = await getMediumStories('Your-Medium-Username', { cors: true })
+```
 
 ## Types
 
-<img src="./img/types.png" alt="node" width="600"/>
+```typescript
+export interface Story {
+    title: string;
+    link: string;
+    pubDate: Date;
+    content: string;
+    creator: string;
+    guid: string;
+    categories: string[];
+    isoDate: Date;
+}
+export interface StoriesResult {
+    items: Story[];
+    feedUrl: string;
+    image: {
+        link: string;
+        url: string;
+        title: string;
+    };
+    title: string;
+    description: string;
+    webMaster: string;
+    generator: string;
+    link: string;
+    lastBuildDate: Date;
+}
+declare type corsFunc = (url: string) => string;
+export interface getStoriesOptions {
+    cors?: boolean | corsFunc;
+    timeout?: number;
+}
+export default function getStories(username: string, options?: getStoriesOptions): Promise<StoriesResult>;
+export {};
+```
 
 ## Explain
 
