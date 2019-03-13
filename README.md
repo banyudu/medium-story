@@ -15,18 +15,20 @@
 ```typescript
 import getMediumStories from 'medium-story'
 
-const stories = await getMediumStories('Your-Medium-Username')
+async someFunc () {
+    const stories = await getMediumStories('Your-Medium-Username')
 
-for (const story of stories.items) {
-    console.log(story.title)
-    // title: string;
-    // link: string;
-    // pubDate: Date;
-    // content: string;
-    // creator: string;
-    // guid: string;
-    // categories: string[];
-    // isoDate: Date;
+    for (const story of stories.items) {
+        console.log(story.title)
+        // title: string;
+        // link: string;
+        // pubDate: Date;
+        // content: string;
+        // creator: string;
+        // guid: string;
+        // categories: string[];
+        // isoDate: Date;
+    }
 }
 ```
 
@@ -35,18 +37,20 @@ for (const story of stories.items) {
 ```typescript
 import getMediumStories from 'medium-story'
 
-const stories = await getMediumStories('Your-Medium-Username', { cors: true })
+async someFunc () {
+    const stories = await getMediumStories('Your-Medium-Username', { cors: true })
 
-for (const story of stories.items) {
-    console.log(story.title)
-    // title: string;
-    // link: string;
-    // pubDate: Date;
-    // content: string;
-    // creator: string;
-    // guid: string;
-    // categories: string[];
-    // isoDate: Date;
+    for (const story of stories.items) {
+        console.log(story.title)
+        // title: string;
+        // link: string;
+        // pubDate: Date;
+        // content: string;
+        // creator: string;
+        // guid: string;
+        // categories: string[];
+        // isoDate: Date;
+    }
 }
 ```
 
