@@ -29,7 +29,7 @@
     "@types/xml2js": "^0.4.3",
     "mocha": "^6.0.2",
     "power-assert": "^1.6.1",
-    "ts-mocha": "^6.0.0",
+    "ts-mocha": "^7.0.0",
     "tslint": "^5.17.0",
     "typescript": "^3.3.3333"
   },
